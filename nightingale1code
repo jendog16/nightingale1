@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Marry Me?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+      color: #333;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .container {
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      position: relative;
+    }
+    h1 {
+      color: #ff0066;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .options {
+      margin-top: 20px;
+    }
+    button {
+      background-color: #ff0066;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #e6005c;
+    }
+    button.reject {
+      background-color: #ccc;
+    }
+    button.reject:hover {
+      background-color: #999;
+    }
+
+    /* Jinnaya Animation */
+    .jinnaya {
+      position: absolute;
+      color: #ff00ff;
+      font-size: 2rem;
+      animation: moveJinnaya 10s linear infinite;
+      opacity: 1;
+    }
+
+    @keyframes moveJinnaya {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      25% {
+        transform: translate(50vw, -50vh) rotate(90deg);
+      }
+      50% {
+        transform: translate(100vw, 0) rotate(180deg);
+      }
+      75% {
+        transform: translate(-50vw, 50vh) rotate(270deg);
+      }
+      100% {
+        transform: translate(0, 0) rotate(360deg);
+      }
+    }
+
+    /* Hidden Audio */
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Innaya, will you marry me?</h1>
+    <p>My sweet nightingale, create a peapod with me. 🫛</p>
+    <div class="options">
+      <button onclick="sayYes()">Fine brev</button>
+      <button class="reject" onclick="sayNo()">No... 😔</button>
+    </div>
+  </div>
+
+  <!-- Jinnaya Elements -->
+  <div id="jinnaya-area"></div>
+
+  <!-- Background Music -->
+  <audio id="background-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+  <script>
+    // Function to trigger the "Jinnaya" flood when "Yes" is selected
+    function sayYes() {
+      alert("LMFG - I LOVE YOU BABYINHA!");
+      // Play background music
+      const audio = document.getElementById('background-music');
+      audio.play().catch(err => console.error('Error playing audio:', err));
+
+      // Add lots of "Jinnaya" elements
+      const jinnayaArea = document.getElementById('jinnaya-area');
+      for (let i = 0; i < 100; i++) {
+        const jinnaya = document.createElement('span');
+        jinnaya.textContent = 'Jinnaya!';
+        jinnaya.classList.add('jinnaya');
+        jinnaya.style.top = Math.random() * 100 + 'vh';
+        jinnaya.style.left = Math.random() * 100 + 'vw';
+        jinnayaArea.appendChild(jinnaya);
+      }
+    }
+
+    function sayNo() {
+      alert("Oh no. Mi Tink Me Gwan Take Me own life ");
+    }
+  </script>
+
+</body>
+</html>
